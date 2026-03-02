@@ -1,0 +1,73 @@
+# nano ~/.config/litellm/config.yaml
+
+
+# General settings
+
+general_settings:
+  master_key: "llm"
+  request_timeout: 600
+
+# Models
+model_list:
+
+  # Qwen3.5-35B variants
+  - model_name: qwen3.5-35b-think-general
+    litellm_params:
+      model: openai/Qwen3.5-35B-A3B-GGUF
+      api_base: http://localhost:30000/v1
+      api_key: none
+      temperature: 1.0
+      top_p: 0.95
+      presence_penalty: 1.5
+      extra_body:
+        top_k: 20
+        min_p: 0.0
+        repetition_penalty: 1.0
+        chat_template_kwargs:
+          enable_thinking: true
+
+  - model_name: qwen3.5-35b-think-code
+    litellm_params:
+      model: openai/Qwen3.5-35B-A3B-GGUF
+      api_base: http://localhost:30000/v1
+      api_key: none
+      temperature: 0.6
+      top_p: 0.95
+      presence_penalty: 0.0
+      extra_body:
+        top_k: 20
+        min_p: 0.0
+        repetition_penalty: 1.0
+        chat_template_kwargs:
+          enable_thinking: true
+
+  - model_name: qwen3.5-35b-instruct-general
+    litellm_params:
+      model: openai/Qwen3.5-35B-A3B-GGUF
+      api_base: http://localhost:30000/v1
+      api_key: none
+      temperature: 0.7
+      top_p: 0.8
+      presence_penalty: 1.5
+      extra_body:
+        top_k: 20
+        min_p: 0.0
+        repetition_penalty: 1.0
+        chat_template_kwargs:
+          enable_thinking: false
+
+  - model_name: qwen3.5-35b-instruct-reasoning
+    litellm_params:
+      model: openai/Qwen3.5-35B-A3B-GGUF
+      api_base: http://localhost:30000/v1
+      api_key: none
+      temperature: 1.0
+      top_p: 0.95
+      presence_penalty: 1.5
+      extra_body:
+        top_k: 20
+        min_p: 0.0
+        repetition_penalty: 1.0
+        chat_template_kwargs:
+          enable_thinking: false
+

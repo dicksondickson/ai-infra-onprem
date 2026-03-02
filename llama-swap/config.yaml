@@ -1,0 +1,76 @@
+
+
+# ~/.config/llama-swap/config.yaml
+
+# only one model loaded at a time since they're sharing the same GPU
+maxRunningModels: 1
+
+#sendLoadingState: true
+
+includeAliasesInList: false
+
+healthCheckTimeout: 120
+
+
+
+
+macros:
+  home: /home/user
+
+
+
+# models
+
+models:
+  GLM-4.7-Flash-GGUF:
+    env:
+      - GGML_CUDA_GRAPH_OPT=1
+      - CUDA_SCALE_LAUNCH_QUEUES=4x
+    cmd: >
+      ${home}/llama.cpp/build/bin/llama-server
+      --model ${home}/models/GLM-4.7-Flash-GGUF/GLM-4.7-Flash-UD-Q4_K_XL.gguf
+      --alias GLM-4.7-Flash-GGUF
+      --host 0.0.0.0
+      --port 30000
+      --flash-attn on
+      --no-mmap
+      --jinja
+      --fit on
+      --ctx-size 32768
+    proxy: http://localhost:30000
+
+  Qwen3.5-27B-GGUF:
+    env:
+      - GGML_CUDA_GRAPH_OPT=1
+      - CUDA_SCALE_LAUNCH_QUEUES=4x
+    cmd: >
+      ${home}/llama.cpp/build/bin/llama-server
+      --model ${home}/models/Qwen3.5-27B-GGUF/Qwen3.5-27B-UD-Q4_K_XL.gguf
+      --mmproj ${home}/models/Qwen3.5-27B-GGUF/mmproj-F16.gguf
+      --alias Qwen3.5-27B-GGUF
+      --host 0.0.0.0
+      --port 30000
+      --flash-attn on
+      --no-mmap
+      --jinja
+      --fit on
+      --ctx-size 32768
+    proxy: http://localhost:30000
+
+  Qwen3.5-35B-A3B-GGUF:
+    env:
+      - GGML_CUDA_GRAPH_OPT=1
+      - CUDA_SCALE_LAUNCH_QUEUES=4x
+    cmd: >
+      ${home}/llama.cpp/build/bin/llama-server
+      --model ${home}/models/Qwen3.5-35B-A3B-GGUF/Qwen3.5-35B-A3B-UD-Q4_K_XL.gguf
+      --mmproj ${home}/models/Qwen3.5-35B-A3B-GGUF/mmproj-F16.gguf
+      --alias Qwen3.5-35B-A3B-GGUF
+      --host 0.0.0.0
+      --port 30000
+      --flash-attn on
+      --no-mmap
+      --jinja
+      --fit on
+      --ctx-size 32768
+    proxy: http://localhost:30000

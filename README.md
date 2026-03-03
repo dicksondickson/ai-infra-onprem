@@ -171,10 +171,22 @@ You should see a list of 4 models:
 
 ```
 
-curl http://localhost:20000/v1/models
+curl http://localhost:20000/v1/models \
+  -H "Authorization: Bearer llm" \
+  -H "Content-Type: application/json"
 
 ```
 
+or test with a chat
+
+```
+
+curl http://localhost:20000/v1/chat/completions \
+  -H "Authorization: Bearer llm" \
+  -H "Content-Type: application/json" \
+  -d '{"model": "qwen3.5-122b-instruct-general", "messages": [{"role": "user", "content": "hello"}]}'
+
+```
 
 # Openwebui or other clients
 

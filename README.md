@@ -184,7 +184,7 @@ or test with a chat
 curl http://localhost:20000/v1/chat/completions \
   -H "Authorization: Bearer llm" \
   -H "Content-Type: application/json" \
-  -d '{"model": "qwen3.5-122b-instruct-general", "messages": [{"role": "user", "content": "hello"}]}'
+  -d '{"model": "qwen3.5-35b-instruct-general", "messages": [{"role": "user", "content": "hello"}]}'
 
 ```
 

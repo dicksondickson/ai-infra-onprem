@@ -12,6 +12,9 @@ I noticed a lot of people are running the Qwen 3.5 models manually juggling the 
 You / client <——> LiteLLM Proxy <——> Your server running llama.cpp.
 
 
+![diagram](diagram.png)
+
+
 # Quickstart
 Here are is quick-start guide to help those that never used LiteLLM proxy.
 

@@ -9,19 +9,6 @@ AI Infrastructure On-prem
 I noticed a lot of people are running the Qwen 3.5 models manually juggling the sampling settings while running Llama.cpp. The easiest way I found is to use LiteLLM Proxy to handle the sampling  settings and let Llama.cpp to serve the model. LiteLLM proxy is really easy to setup.
 
 
-# Here is a diagram:
-
-   You / client              Lite LLM Proxy             Your “server"
-┌──────────────────┐       ┌─────────────────┐       ┌──────────────────┐
-│ Open WebUI       │       │    LiteLLM      │       │ llama.cpp        │
-│ OpenCode         │──────▶│    Proxy        │──────▶│                  │
-│                  │       │ (routing +      │       │  Qwen3.5         │
-│ etc              │◀──────│  sampling cfg)  │◀──────│                  │
-└──────────────────┘       └─────────────────┘       └──────────────────┘
-      Clients             Routes + injects params      Inference backends
-
-
-
 You / client <——> LiteLLM Proxy <——> Your server running llama.cpp.
 
 

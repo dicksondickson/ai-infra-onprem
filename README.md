@@ -132,7 +132,7 @@ model_list:
       top_p: 0.95
       presence_penalty: 1.5
       extra_body:
-        top_k: 20
+        top_k: 40
         min_p: 0.0
         repetition_penalty: 1.0
         chat_template_kwargs:
